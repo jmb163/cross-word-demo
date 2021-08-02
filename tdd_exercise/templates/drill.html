@@ -37,12 +37,20 @@
         <h4>{{clue.clue_text}} </h4>
     </div>
     <div class="column">
-        <h2>Entr(y|ies)</h2>
-        <h4>Entry Goes Here</h4>
-<form method="POST" action="/guess/{{clue.id}}">
+        <h2>Cheat?</h2>
+        <h4>{% if cheat%}
+                {{cheat}}
+            {% else %}
+                ***************
+            {% endif %}
+        </h4>
+<form method="POST" action="/xword-answer/{{clue.id}}">
     {% csrf_token %}
-    <input type='text' id="user_answer" placeholder="Enter a response here?" name="user_answer">
+    <input type='text' id="answer" placeholder="Enter a response here?" name="answer" value="answer">
     <button type="submit">Submit</button>
+</form>
+<form action="/cheat/{{clue.id}}">
+    <button type="submit" onclick="">Cheat</button>
 </form>
     </div>
 </div>

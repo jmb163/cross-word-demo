@@ -17,9 +17,14 @@ from django.contrib import admin
 from django.urls import path
 
 from xword_data.views import drill
+from xword_data.views import cheat
+from xword_data.views import set_clue
+from xword_data.views import answer
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('xword-answer/<int:clue_id>', drill)
-    path('xword-answer')
+    path('xword-answer/', set_clue),
+    path('xword-answer/<int:clue_id>', drill),
+    path('cheat/<int:clue_id>', cheat),
+    path('answer/<int:clue_id>', answer)
 ]

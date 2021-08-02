@@ -1,0 +1,38 @@
+{% extends 'base.html'%}
+{%block content%}
+<style>
+    h1
+    {
+    border:solid 3px orange;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    };
+    .row {
+    display:flex;
+
+    }
+    .column {
+    border:solid 2px grey;
+    border-radius:2px;
+    padding:3px;
+    flex:50%;
+    }
+</style>
+<h1>
+    Great Job, You Guessed Correctly!
+</h1>
+{% if unique %}
+    <h2>
+        This clue is unique
+    </h2>
+{% elif not unique %}
+    <ul>
+    {% for ent in entry_list %}
+        <li>{{ent.entry_text}}</li>
+    {% endfor %}
+    </ul>
+<h3>There are {{num_entries}} Entries!</h3>
+{% endif %}
+
+{% endblock %}
