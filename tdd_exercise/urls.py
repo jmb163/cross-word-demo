@@ -16,6 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from xword_data.views import drill
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('xword-answer/<int:clue_id>', drill)
+    path('xword-answer')
 ]

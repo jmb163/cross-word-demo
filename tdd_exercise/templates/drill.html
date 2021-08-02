@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+    h1
+    {
+    border:solid 3px orange;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    };
+    .row {
+    display:flex;
+
+    }
+    .column {
+    border:solid 2px grey;
+    border-radius:2px;
+    padding:3px;
+    flex:50%;
+    }
+</style>
+<script>
+
+    let showCheat = function()
+    {
+        document.getElementById('cheat').style.border="purple";
+    };
+
+</script>
+<h1 >
+    This is not a drill!
+</h1>
+<h3>{{ user_message }}</h3>
+<div class="row">
+    <div class="column">
+        <h2>Clue:</h2>
+        <h4>{{clue.clue_text}} </h4>
+    </div>
+    <div class="column">
+        <h2>Entr(y|ies)</h2>
+        <h4>Entry Goes Here</h4>
+<form method="POST" action="/guess/{{clue.id}}">
+    {% csrf_token %}
+    <input type='text' id="user_answer" placeholder="Enter a response here?" name="user_answer">
+    <button type="submit">Submit</button>
+</form>
+    </div>
+</div>
+{% endblock %}
