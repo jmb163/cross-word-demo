@@ -44,7 +44,7 @@ def drill(request, clue_id):
         #they got it right
         return redirect('/answer/{}'.format(clue_id))
     else:
-        context['user_message'] = "WRONG!!!"
+        context['user_message'] = "not correct!!!"
         return render(request, 'drill.html', context)
 
 def cheat(request, clue_id):

@@ -24,14 +24,25 @@
 </h1>
 {% if unique %}
     <h2>
-        This clue is unique
+        only appearance of this clue
     </h2>
 {% elif not unique %}
-    <ul>
-    {% for ent in entry_list %}
-        <li>{{ent.entry_text}}</li>
-    {% endfor %}
-    </ul>
+    <table>
+        <tr>
+            <td>Count</td>
+            <td>Entry</td>
+        </tr>
+        {% for ent in entry_list %}
+     <tr>
+           <td>
+               {{ forloop.counter }}
+            </td>
+            <td>
+                {{ent.entry_text}}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
 <h3>There are {{num_entries}} Entries!</h3>
 {% endif %}
 
