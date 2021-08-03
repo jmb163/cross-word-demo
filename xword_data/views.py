@@ -42,7 +42,7 @@ def drill(request, clue_id):
         return render(request, 'drill.html', context)
     if a.strip().upper() == c.entry.entry_text.upper():
         #they got it right
-        redirect('/answer/{}'.format(clue_id))
+        return redirect('/answer/{}'.format(clue_id))
     else:
         context['user_message'] = "WRONG!!!"
         return render(request, 'drill.html', context)
