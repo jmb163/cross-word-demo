@@ -74,7 +74,12 @@ def answer(request, clue_id):
         unique = False
     else:
         unique = True
-    context = {'entry_list':[x.entry for x in c_set], 'unique':unique, 'num_entries':len(c_set)}
+    c_set = [x for x in c_set]
+    clue_set = set(c_set)
+    ntries = []
+    for c in clue_set:
+        ntries.append({'count':c_set.count(c), 'entry':c.entry.entry_text})
+    context = {'entry_list':ntries, 'unique':unique, 'num_entries':len(c_set)}
     return render(request, 'answer.html', context)
 
 

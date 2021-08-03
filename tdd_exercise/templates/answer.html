@@ -35,10 +35,10 @@
         {% for ent in entry_list %}
      <tr>
            <td>
-               {{ forloop.counter }}
+               {{ ent.count }}
             </td>
             <td>
-                {{ent.entry_text}}
+                {{ ent.entry }}
             </td>
         </tr>
         {% endfor %}
